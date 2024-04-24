@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background-image: url('design.jpg'); 
+            /* background-size: cover; */
+            padding: 20px;
+            color: white;
+        }
+        
+        h1, h2, h3 {
+            color: #f6f6f6;
+            align-items: center;
+            margin-left: 800px;
+        }
+        
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .menu-item p {
+            margin-right: 20px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .menu-item button {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        button {
+            font-size: 18px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            color: black;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background-color: white;
+            color: black;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: black;
+        }
+        
+        #billTable {
+            margin-top: 20px;
+        }
+        
+        #totalBillAmount {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+        
+        .menu-item span {
+            margin-left: 10px; 
+        }
+        #gbill{
+            margin-left: 850px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Today's Menu</h1>
+<h3>Main course</h3>
+<!-- Main Course Menu Items -->
+<div class="menu-item">
+    <p>Kadai Paneer</p>
+    <button onclick="decrement('kadaiPaneer')">-</button>
+    <span id="count-kadaiPaneer">0</span>
+    <button onclick="increment('kadaiPaneer')">+</button>
+</div>
+<div class="menu-item">
+    <p>Mushroom Paneer</p>
+    <button onclick="decrement('mushroomPaneer')">-</button>
+    <span id="count-mushroomPaneer">0</span>
+    <button onclick="increment('mushroomPaneer')">+</button>
+</div>
+<div class="menu-item">
+    <p>Aloo Jeera</p>
+    <button onclick="decrement('alooJeera')">-</button>
+    <span id="count-alooJeera">0</span>
+    <button onclick="increment('alooJeera')">+</button>
+</div>
+
+<h2>Rice</h2>
+<!-- Rice Menu Items -->
+<div class="menu-item">
+    <p>Plain Rice</p>
+    <button onclick="decrement('plainRice')">-</button>
+    <span id="count-plainRice">0</span>
+    <button onclick="increment('plainRice')">+</button>
+</div>
+<div class="menu-item">
+    <p>Jeera Rice</p>
+    <button onclick="decrement('jeeraRice')">-</button>
+    <span id="count-jeeraRice">0</span>
+    <button onclick="increment('jeeraRice')">+</button>
+</div>
+<div class="menu-item">
+    <p>Fried Rice</p>
+    <button onclick="decrement('friedRice')">-</button>
+    <span id="count-friedRice">0</span>
+    <button onclick="increment('friedRice')">+</button>
+</div>
+
+<h2>Beverages</h2>
+<!-- Beverage Menu Items -->
+<div class="menu-item">
+    <p>Orange Juice</p>
+    <button onclick="decrement('orangeJuice')">-</button>
+    <span id="count-orangeJuice">0</span>
+    <button onclick="increment('orangeJuice')">+</button>
+</div>
+<div class="menu-item">
+    <p>Pineapple Juice</p>
+    <button onclick="decrement('pineappleJuice')">-</button>
+    <span id="count-pineappleJuice">0</span>
+    <button onclick="increment('pineappleJuice')">+</button>
+</div>
+<div class="menu-item">
+    <p>Musk Melon Juice</p>
+    <button onclick="decrement('muskMelonJuice')">-</button>
+    <span id="count-muskMelonJuice">0</span>
+    <button onclick="increment('muskMelonJuice')">+</button>
+</div>
+
+<h2>Bread</h2>
+<!-- Bread Menu Items -->
+<div class="menu-item">
+    <p>Butter Roti</p>
+    <button onclick="decrement('butterRoti')">-</button>
+    <span id="count-butterRoti">0</span>
+    <button onclick="increment('butterRoti')">+</button>
+</div>
+<div class="menu-item">
+    <p>Butter Tandoori Roti</p>
+    <button onclick="decrement('butterTandooriRoti')">-</button>
+    <span id="count-butterTandooriRoti">0</span>
+    <button onclick="increment('butterTandooriRoti')">+</button>
+</div>
+<div class="menu-item">
+    <p>Tava Roti</p>
+    <button onclick="decrement('tavaRoti')">-</button>
+    <span id="count-tavaRoti">0</span>
+    <button onclick="increment('tavaRoti')">+</button>
+</div>
+
+<!-- Generate Bill Button -->
+<div>
+    <button onclick="generateBill()" id="gbill">Generate bill</button>
+    <div id="billTable"></div>
+    <p id="totalBillAmount"></p>
+</div>
+
+<script>
+    function generateRandomNumber() {
+        // Generate a random number between 10000 and 99999 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 90000) + 10000;
+        document.getElementById('randomNumber').textContent = "Random Number: " + randomNumber;
+    }
+
+    let counts = {
+        kadaiPaneer: 0,
+        mushroomPaneer: 0,
+        alooJeera: 0,
+        plainRice: 0,
+        jeeraRice: 0,
+        friedRice: 0,
+        orangeJuice: 0,
+        pineappleJuice: 0,
+        muskMelonJuice: 0,
+        butterRoti: 0,
+        butterTandooriRoti: 0,
+        tavaRoti: 0
+    };
+
+    const itemPrices = {
+        kadaiPaneer: 110,
+        mushroomPaneer: 90,
+        alooJeera: 50,
+        plainRice: 50,
+        jeeraRice: 60,
+        friedRice: 80,
+        orangeJuice: 50,
+        pineappleJuice: 50,
+        muskMelonJuice: 50,
+        butterRoti: 9,
+        butterTandooriRoti: 12,
+        tavaRoti: 5
+    };
+    
+    function increment(item) {
+        counts[item]++;
+        document.getElementById('count-' + item).textContent = counts[item];
+    }
+    
+    function decrement(item) {
+        if (counts[item] > 0) {
+            counts[item]--;
+            document.getElementById('count-' + item).textContent = counts[item];
+        }
+    }
+
+    function generateBill() {
+        let billTable = '<table><tr><th>Item</th><th>Quantity</th><th>Price</th></tr>';
+        let totalBill = 0;
+
+        for (let item in counts) {
+            let quantity = counts[item];
+            if (quantity > 0) {
+                let price = itemPrices[item] * quantity;
+                totalBill += price;
+                billTable += `<tr><td>${item}</td><td>${quantity}</td><td>₹${price}</td></tr>`;
+            }
+        }
+        
+        // Add GST (4.5%)
+        let gstAmount = totalBill * 0.045;
+        let grandTotal = totalBill + gstAmount;
+        billTable += `<tr><th>Total</th><td></td><td>₹${totalBill}</td></tr>`;
+        billTable += `<tr><th>Grand Total (incl. GST)</th><td></td><td>₹${grandTotal.toFixed(2)}</td></tr>`;
+        billTable += '</table>';
+
+        document.getElementById("billTable").innerHTML = billTable;
+    }
+</script>
+</body>
+</html>
